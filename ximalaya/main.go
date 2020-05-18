@@ -29,7 +29,7 @@ func getacc() {
 	setHeaders(req.Header)
 	resp, _ := client.Do(req)
 	body, _ := ioutil.ReadAll(resp.Body)
-	println("json:", string(body))
+	println("签到结果:", string(body))
 }
 
 func setHeaders(header http.Header) {
@@ -58,7 +58,6 @@ func getUser(url string) User {
 	resp, _ := client.Do(req)
 	var u User
 	body, _ := ioutil.ReadAll(resp.Body)
-	println("json:", string(body))
 	json.Unmarshal(body, &u)
 	return u
 }
